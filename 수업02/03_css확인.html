@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Intenal CSS  (우선순위 3순위)-->
+    <style>
+        .s_style1 {
+            font-size: 50px;
+        }
+        .font_style2 {
+            font-weight: bold;
+            color: red;
+        }
+        .font_style3 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <span class="s_style1">
+        <span class="font_style2">Hello</span>
+        <!--Inline CSS (우선순위 2순위)-->
+        <span style="color: blue;">World</span>
+    </span>
+</body>
+</html>
