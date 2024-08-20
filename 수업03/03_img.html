@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img_size{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+        }
+        .img_size2{
+            display: inline-block;
+            width: 200px;
+            height: 400px;
+            border: 1px solid black;
+            /* overflow: hidden; */
+            overflow: scroll;
+        }
+        .first{
+            /* R(2자리)G(2자리)B(2자리) */
+            /* fff: 하양색, 000 : 검정색 */
+            /* background-color: blanchedalmond; */
+            background-color: rgb(100, 122, 244);
+        }
+        .dog_img{
+            background-image: url('./img1.jpg');
+        }
+        .a{
+            background-size: 200px 400px;
+        }
+        .b{
+            background-size: contain;
+        }
+        .c{
+            background-size: cover;
+        }
+        .scroll{
+            background-attachment: scroll;
+        }
+        .fixed{
+            background-attachment: fixed;
+        }
+        .local{
+            background-attachment: local;
+        }
+        .gra{
+            margin: 20px;
+            width: 500px;
+            height: 200px;
+            border: 1px solid black;
+
+        }
+        .back-gradiend{
+            background: linear-gradient(to right, red 0%, yellow 50%, blue 100%);
+        }
+        .back-gradiend2{
+            background: linear-gradient(50deg, red 0%, blue 100%);
+        }
+        .back-gradiend3{
+            background: radial-gradient(circle at 10% 50%, red, blue, yellow);
+        }
+    </style>
+</head>
+<body>
+    <!-- 상대경로, 절대경로 -->
+    <!-- 절대: 최상위부터 시작, 'vscode'는 현재 폴더 위치가 최상위-->
+    <!-- 현재 위치를 기준으로 시작. ./../ 이미지파일명-->
+    <img src="./img1.jpg" alt="강아지사진" width="100px" height="100px">
+    <img src="./img1.jpg" alt="강아지사진" class="img_size">
+
+    <div class="img_size first"></div>
+    <div class="img_size dog_img a"></div>
+    <div class="img_size dog_img b"></div>
+    <div class="img_size dog_img c"></div><br/>
+
+    <div class="dog_img img_size2 a scroll">
+        <p>청이는 공장단지의 도로변에 쓰러져있었습니다.
+
+            트럭과 트레일러가 수시로 오가는 곳이라 2차사고가 날까봐 급히 구조하게 되었습니다.
+            
+            비를 맞아 감기가 걸린 탓에 재채기를 하긴 하지만 약도 잘 먹고, 
+            
+            밥도 잘 먹는 덕분에 건강을 회복하고 있습니다.
+            
+            호기심 많은 청이는 사람들을 볼 때면 꼬리를 세우고 뒤를 따라다니기도 하고 
+            
+            무릎에 스스럼없이 앉기도 하는 개냥이입니다.
+            
+            고양이를 좋아하지 않는 분이라도 애교를 보시면 빠져들 수밖에 없을 거에요.  
+            귀여운 하얀양말과 분홍젤리를 가진 청이의 가족이 되어주세요!   
+            [출처] [입양완료] 폭우가 쏟아진 다음날 공장단지 도로에서 구조된 '청이'의 가족이 되어주세요!|작성자 동물권행동 카라</p>
+    </div>
+    <div class="dog_img img_size2 a fixed">
+        <p>청이는 공장단지의 도로변에 쓰러져있었습니다.
+
+            트럭과 트레일러가 수시로 오가는 곳이라 2차사고가 날까봐 급히 구조하게 되었습니다.
+            
+            비를 맞아 감기가 걸린 탓에 재채기를 하긴 하지만 약도 잘 먹고, 
+            
+            밥도 잘 먹는 덕분에 건강을 회복하고 있습니다.
+            
+            호기심 많은 청이는 사람들을 볼 때면 꼬리를 세우고 뒤를 따라다니기도 하고 
+            
+            무릎에 스스럼없이 앉기도 하는 개냥이입니다.
+            
+            고양이를 좋아하지 않는 분이라도 애교를 보시면 빠져들 수밖에 없을 거에요.  
+            
+            귀여운 하얀양말과 분홍젤리를 가진 청이의 가족이 되어주세요!   
+            [출처] [입양완료] 폭우가 쏟아진 다음날 공장단지 도로에서 구조된 '청이'의 가족이 되어주세요!|작성자 동물권행동 카라</p>
+    </div>
+    <div class="dog_img img_size2 a local">
+        <p>청이는 공장단지의 도로변에 쓰러져있었습니다.
+
+            트럭과 트레일러가 수시로 오가는 곳이라 2차사고가 날까봐 급히 구조하게 되었습니다.
+            
+            비를 맞아 감기가 걸린 탓에 재채기를 하긴 하지만 약도 잘 먹고, 
+            
+            밥도 잘 먹는 덕분에 건강을 회복하고 있습니다.
+            
+            호기심 많은 청이는 사람들을 볼 때면 꼬리를 세우고 뒤를 따라다니기도 하고 
+            
+            무릎에 스스럼없이 앉기도 하는 개냥이입니다.
+            
+            고양이를 좋아하지 않는 분이라도 애교를 보시면 빠져들 수밖에 없을 거에요.  
+            
+            귀여운 하얀양말과 분홍젤리를 가진 청이의 가족이 되어주세요!   
+            [출처] [입양완료] 폭우가 쏟아진 다음날 공장단지 도로에서 구조된 '청이'의 가족이 되어주세요!|작성자 동물권행동 카라</p>
+    </div>
+
+    <div class="gra back-gradiend"></div>
+    <div class="gra back-gradiend2"></div>
+    <div class="gra back-gradiend3"></div>
+
+</body>
+</html>
