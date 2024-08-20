@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자식식별자</title>
+    <style>
+        ul > li:nth-child(5){
+            background-color: aquamarine;
+            color: green;
+        }
+        ul > li:nth-child(3n){
+            background-color: cadetblue;
+            color: antiquewhite;
+        }
+        ul > li:nth-child(3n+1){
+            background-color: cornflowerblue;
+            color: antiquewhite;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+        tr,td{
+            border: 1px solid black;
+        }
+        td{
+            padding: 20px 50px;
+            background-color: aquamarine;
+        }
+        tr:nth-child(2n+1)>td:nth-child(2){
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>오렌지</li>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>오렌지</li>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>오렌지</li>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>오렌지</li>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>오렌지</li>
+    </ul>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>

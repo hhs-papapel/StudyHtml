@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 만들기</title>
+    <style>
+        .img_result{
+            display: none;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .tree01{
+            background-image: url('./img1.jpg');
+            background-size: contain;
+        }
+        .tree02{
+            background-image: url('./img2.jpg');
+            background-size: contain;
+        }
+        .tree03{
+            background-image: url('./img3.jpg');
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="이미지 만들기1" onclick="imageCreate('img1')">
+    <div class="img_result tree01" id="img1"></div>
+    <input type="button" value="이미지 만들기2" onclick="imageCreate('img2')">
+    <div class="img_result tree02" id="img2"></div>
+    <input type="button" value="이미지 만들기3" onclick="imageCreate('img3')">
+    <div class="img_result tree03" id="img3"></div>
+
+    <script>
+        function imageCreate(imgResult){
+            let docu = document.getElementById(imgResult)
+            docu.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

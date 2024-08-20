@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            font-size: 20px;
+            background-color: darkslateblue;
+            color: white;
+        }
+        .btn:hover{
+            background-color: cornflowerblue;
+        }
+        .img_div{
+            display: none;
+            border: 2px solid pink;
+            margin: 50px auto;
+            width: 300px;
+            height: 300px;
+        }
+        .img_div:hover{
+            border: 10px solid palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="이미지 생성1" class="btn" onclick="imgcreate(1)">
+    <input type="button" value="이미지 생성2" class="btn" onclick="imgcreate(2)">
+    <input type="button" value="이미지 생성3" class="btn" onclick="imgcreate(3)">
+    <div class="img_div" id="imgdiv" onclick="imgDisplay()"></div>
+
+    <script>
+        function imgcreate(num){
+            //alert(num);
+            let imgs = document.getElementById("imgdiv");
+            
+            imgs.style.display = 'block';
+            if(num==1){
+                imgs.style.background = "url(./img1.jpg)";
+            }else if(num==2){
+                imgs.style.background = "url(./img2.jpg)";
+            }else if(num==3){
+                imgs.style.background = "url(./img3.jpg)";
+            }
+            imgs.style.backgroundSize = "300px 300px";
+        }
+        function imgDisplay(){
+            let imgs = document.getElementById("imgdiv");
+            
+            //if(imgs.style.display == 'block'){
+                imgs.style.display = 'none';
+        }
+    </script>
+    
+</body>
+</html>

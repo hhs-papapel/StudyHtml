@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상식별자</title>
+    <style>
+        a{
+            display: block;
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+        }
+        a:hover{
+            color: blue;
+            border: 1px solid #999;
+        }
+        a:visited{
+            /* 방문한적이 있는지 */
+            color: #999;
+        }
+        a:link{ 
+            /* 방문한적이 없는지 */
+            color: green;
+        }
+        input:hover{
+            border-color: blue;
+        }
+        input:focus{
+            border-color: green;
+        }
+        label{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        label::before{
+            content: '*';
+            color: red;
+        }
+        label::after{
+            content: '!';
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://google.com">구글</a>
+    <a href="https://asdfsdfsa.com">이상한 사이트1</a>
+    <a href="https://asdfsdfsa123.com">이상한 사이트2</a>
+    <a href="https://korea.com">korea 사이트</a>
+
+    <label for="">입력창</label>
+    <input type="text" id="">
+</body>
+</html>
