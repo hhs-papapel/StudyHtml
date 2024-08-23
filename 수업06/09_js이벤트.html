@@ -25,7 +25,7 @@
     <div class="box" onmouseover="over()">6</div>
     <div class="box" onmouseout="over()">7</div>
 
-    <input type="text" onkeydown="input1(e)">
+    <input type="text" onkeydown="input1(event)">
     <script>
         function over(){
             alert('반응');
@@ -34,7 +34,7 @@
             console.log('check');
         }
         function input1(e){
-            console.log(e.value);
+            console.log(e.keyCode);
         }
     </script>
 </body>

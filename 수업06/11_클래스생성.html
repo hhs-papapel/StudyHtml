@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgb(235, 230, 253);
+        }
+        .cenbox{
+            position: relative;
+            background: none;
+            justify-content: center;
+        } 
+        .box{
+            margin: 30px;
+            width: 300px;
+            height: 300px;
+            border-radius: 0%;
+            border: 3px solid black;
+            background-color: rgb(79, 122, 202);
+            transition: 2s ease all;
+            overflow: hidden;
+            transform: rotate(0deg);
+        }
+        .wid{
+            width: 80vh;
+        }
+        .hei{
+            height: 500px;
+        }
+        .animation{
+            background-color: rgb(255, 240, 28);
+        }
+
+        .animation2{
+            animation: vibration 0.1s infinite;
+        }
+        @keyframes vibration {
+            from {
+                transform: rotate(1deg);
+            }
+            to {
+                transform: rotate(-1deg);
+            }
+        }
+        .box2{
+            width: 0%;
+            height: 100%;
+            background-color: rgb(79, 122, 202);
+            transition: 2s ease all;
+
+            -webkit-filter: blur(30px);
+            filter: blur(30px);
+            -webkit-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+        .box2width{
+            -webkit-filter: blur(0);
+            filter: blur(0);
+            width: 100%;
+            background-color: aquamarine;
+        }
+        .radius{
+            border-radius: 50%;
+        }
+        .h:hover{
+            transform: rotate(360deg);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="cenbox">
+        <input type="button" id="btn1" value="너비 늘리기">
+        <input type="button" id="btn2" value="높이 늘리기">
+    
+        <input type="button" id="btn3" value="색변경">
+        <input type="button" id="btn4" value="흔들기">
+        <input type="button" id="btn5" value="기타1">
+        <input type="button" id="btn6" value="기타2">
+        <input type="button" id="btn7" value="기타3">
+        <div class="box">
+            <div class="box2"></div>
+        </div>
+    </div>
+
+    <script>
+        //class 생성하는 방법
+        //element.classList.add([클래스 명칭]);
+        //class 삭제방법
+        //element.classList.remove([클래스 명칭]);
+
+        //클래스 존재유무 화깅
+        //element.classList.contains([클래스 명칭]);
+
+        document.getElementById('btn1').addEventListener('click',wid);
+
+        function wid(){
+            let box = document.querySelector('.box');
+            if(box.classList.contains('wid')){
+                box.classList.remove('wid');
+            }else{
+                box.classList.add('wid');
+            }
+        }
+
+        document.getElementById('btn2').addEventListener('click',hei);
+
+        function hei(){
+            let box = document.querySelector('.box');
+            if(box.classList.contains('hei')){
+                box.classList.remove('hei');
+            }else{
+                box.classList.add('hei');
+            }
+        }
+
+        document.getElementById('btn3').addEventListener('click',ani);
+
+        function ani(){
+            let box = document.querySelector('.box');
+            if(box.classList.contains('animation')){
+                box.classList.remove('animation');
+            }else{
+                box.classList.add('animation');
+            }
+        }
+        
+        document.getElementById('btn4').addEventListener('click',ani2);
+
+        function ani2(){
+            let box = document.querySelector('.box');
+            if(box.classList.contains('animation2')){
+                box.classList.remove('animation2');
+            }else{
+                box.classList.add('animation2');
+            }
+        }
+        document.getElementById('btn5').addEventListener('click',box2w);
+
+        function box2w(){
+            let box = document.querySelector('.box2');
+            if(box.classList.contains('box2width')){
+                box.classList.remove('box2width');
+            }else{
+                box.classList.add('box2width');
+            }
+        }
+        document.getElementById('btn6').addEventListener('click',radius);
+
+        function radius(){
+            let box = document.querySelector('.box');
+            if(box.classList.contains('radius')){
+                box.classList.remove('radius');
+            }else{
+                box.classList.add('radius');
+            }
+        }
+        document.getElementById('btn7').addEventListener('click',hov);
+
+        function hov(){
+            let box = document.querySelector('.box');
+            if(box.classList.contains('h')){
+                box.classList.remove('h');
+            }else{
+                box.classList.add('h');
+            }
+        }
+    </script>
+</body>
+</html>
