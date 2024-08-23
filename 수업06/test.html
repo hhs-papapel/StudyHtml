@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgb(235, 230, 253);
+        }
+        .box{
+            position: relative;
+            background: white;
+            border-radius: 2%;
+            overflow: hidden;
+            box-shadow: 5px 5px 5px rgb(138, 138, 138);
+        } 
+        .box2{
+            margin: 30px;
+        }
+        .num{
+            width: 150px;
+            height: 25px;
+            border-radius: 2%;
+            border: none;
+            border-bottom: 3px solid  rgb(142, 128, 226);
+            transition: border-bottom 1s;
+        }
+        .num:focus{
+            outline: none;
+            border-bottom: 3px solid darkslateblue;
+        }
+        table{
+            border-collapse: collapse;
+            margin: 30px;
+            border: 1px solid darkslateblue;
+            
+            border-radius: 8px;
+            width: 415px;
+            overflow: hidden;
+        }
+        td,th{
+            height: 30px;
+            text-align: center;
+        }
+        th{
+            height: 40px;
+            background-color: darkslateblue;
+            color: white;
+        }
+        tr:nth-child(2n) > td {
+            background-color: rgb(211, 233, 255);
+        }
+        .btn{
+            width: 100px;
+            height: 30px;
+            color: white;
+            border: none;
+            border-radius: 5%;
+            background-color: rgb(142, 128, 226); 
+             transition: 800ms ease all;
+        }
+        .btn:hover{
+            background-color: darkslateblue;
+        }
+
+        </style>
+</head>
+<body>
+    
+    
+    <div class="box">
+        <div class="box2">
+            <input type="number" id="num1" class="num">
+            <input type="number" id="num2" class="num">
+            <input type="button" value="결과출력" onclick="create()" class="btn">
+        </div>
+
+        <table id = 'result'>
+            <tr><th>구구단</th></tr>
+        </table>
+    </div>
+
+    <script>
+        function create(){
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+            let str = '';
+            for (let i = num1; i <= num1; i++) {
+                str +='<tr><th>'+i+'단</th></tr>';
+                for (let j = 1; j <= num2; j++) {
+                    str +='<tr><td>'+i+'x'+j+'='+(i*j)+'</td></tr>';
+                }
+            }
+            document.getElementById('result').innerHTML = str;
+        }
+    </script>
+
+</body>
+</html>
