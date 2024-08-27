@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .img {
+            border: 2px solid pink;
+            margin: 50px auto;
+            width: 300px;
+            height: 300px;
+            background-image: url('./img1.jpg');
+            background-size: 300px 300px;
+        }
+    </style>
+<body>
+    <h1>음식고르기</h1>
+    <select id="select1" onchange="box(event)">
+        <option value="0">커피</option>
+        <option value="1">케이크</option>
+        <option value="2">쿠키</option>
+    </select>
+    <br/>
+
+    <img id="displayedImage" src="./img1.jpg" alt="음식사진">
+    
+
+    <script>
+        //배열
+        const imgArr =['./img1.jpg','./img2.jpg','./img3.jpg']
+
+        function box(e){
+            document.querySelector('#displayedImage').src = imgArr[e.target.value];
+        }
+
+    </script>
+
+</body>
+</html>

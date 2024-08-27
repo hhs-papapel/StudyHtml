@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="select1" onchange="box()">
+        <option>커피</option>
+        <option>케이크</option>
+    </select>
+
+    <select id="select2">
+        <option>바닐라라떼</option><option>아메리카노</option>
+    </select>
+
+    <script>
+
+        function box(){
+            let select1 = document.getElementById('select1').value;
+            let select2 = document.getElementById('select2');
+
+            let htmlStr = '';
+            if (select1 == '커피'){
+                htmlStr = '<option>바닐라라떼</option><option>아메리카노</option>';
+            }else{
+                htmlStr = '<option>딸기케이크</option><option>초코케이크</option>';
+            }
+            
+            select2.innerHTML = htmlStr;
+        }
+
+    </script>
+
+</body>
+</html>

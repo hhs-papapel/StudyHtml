@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="select1" onchange="box()">
+        <option>커피</option>
+        <option>케이크</option>
+    </select>
+
+    <select id="select2">
+        <option>바닐라라떼</option><option>아메리카노</option>
+    </select>
+
+    <script>
+        function box(){
+            var subOption1 = ['바닐라라떼','아메리카노'];
+            var subOption2 = ['초코케이크','딸기케이크'];
+            
+            let select1 = document.getElementById('select1').value;
+            let select2 = document.getElementById('select2');
+
+            select2.options.length = 0;
+            switch (select1){
+                case '커피':
+                    for (let i = 0; i < subOption1.length; i++) {
+                        var opt = document.createElement('option');
+                        opt.innerText = subOption1[i];
+                        select2.append(opt);
+                    }
+                    break;
+                case '케이크':
+                    for (let i = 0; i < subOption2.length; i++) {
+                        var opt = document.createElement('option');
+                        opt.innerText = subOption2[i];
+                        select2.append(opt);
+                    }
+                    break;
+            }
+        }
+    </script>
+
+</body>
+</html>

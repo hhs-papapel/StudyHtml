@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .img {
+            border: 2px solid pink;
+            margin: 50px auto;
+            width: 300px;
+            height: 300px;
+            background-image: url('./img1.jpg');
+            background-size: 300px 300px;
+        }
+    </style>
+<body>
+    <h1>음식고르기</h1>
+    <select id="select1" onchange="box()">
+        <option>커피</option>
+        <option>케이크</option>
+        <option>쿠키</option>
+    </select>
+
+    <div class="img" id = 'img'>
+
+    </div>
+
+    <script>
+
+        function box(){
+            let select1 = document.getElementById('select1').value;
+            let imgs = document.getElementById("img");
+            
+            let img = document.querySelector('.img');
+
+            if (select1 == '커피'){
+                img.style.background = "url(./img1.jpg)";
+            }else if (select1 == '케이크'){
+                img.style.background = "url(./img2.jpg)";
+            }else if (select1 == '쿠키'){
+                img.style.background = "url(./img3.jpg)";
+            }
+            img.style.backgroundSize = "300px 300px";
+        }
+
+    </script>
+
+</body>
+</html>
