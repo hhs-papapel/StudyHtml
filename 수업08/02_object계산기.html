@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <input type="text">
+    <input type="button" value="계산" onclick="result()">    
+
+    <script>
+        let obj1 = {};
+
+        function result(){
+
+            let num = document.querySelectorAll('input');
+            
+            //key가 똑같을때 마지막 값이 저장됨
+            obj1.div = Number(num[0].value)/Number(num[1].value);
+            obj1.div = (num1>num2)?num1/num2:num2/num1;
+            obj1.mult = Number(num[0].value)*Number(num[1].value);
+            obj1.minus = Number(num[0].value)-Number(num[1].value);
+            obj1.plus = Number(num[0].value)+Number(num[1].value);
+            
+            console.log(obj1);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //시계 (날짜 함수)
+        //현재 pc기준으로 날짜를 정의.( 클라이언트 기준, 서버에 저장시 활용 x)
+        let today = new Date();
+        console.log("년도: ", today.getFullYear());
+        console.log("월: ", today.getMonth()+1);
+        console.log("일: ", today.getDate());
+
+        //1초마다 반복 실행
+        //setInterval(함수, 몇초마다 반복할것 (int))
+        // setInterval(function() {
+        //     let today2 = new Date();
+        //     console.log(today2.getHours(),'-',today2.getMinutes(),'-',today2.getSeconds())
+        // }, 1000); //1초: 1000(밀리세컨드)
+
+        //setTimeout (함수, 몇초 뒤에 실행 할 것인지 (int));
+        // setTimeout(function(){
+        //     alert('time')
+        // }, 5000);
+
+        clock();
+        function clock(){
+            setTimeout(function(){
+                alert('time');
+                clock();
+                
+            },2000);
+            
+        }
+
+    </script>
+</body>
+</html>
