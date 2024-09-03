@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgb(48, 45, 179);
+            background-image: url('back.png');
+        }
+        .box{
+            position: relative;
+            width: 520px;
+            height: 800px;
+            background: white;
+            overflow: hidden;
+            box-shadow: 25px 25px rgb(27, 21, 82);
+            border: 3px solid rgb(27, 21, 82);
+            /* animation: test 15s infinite linear; */
+        }
+        @keyframes test {
+            0%{ 
+                background-color: #3c00e0;
+            }
+            30%{
+                background-color: #9177da;
+            }
+            50%{
+                background-color: #ccc2e9;
+            }
+            70%{
+                background-color: #9177da;
+            }
+            100%{ 
+                background-color: #3c00e0;
+            }
+        }
+        .box2 {
+            padding: 15px 30px;
+            
+            width: 100%;
+            height: 700px;
+        }
+        table {
+            margin-right: 60px;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        tr,td {
+            height: 50px;
+        }
+        .intro{
+            height: 80px;
+        }
+        th{
+            height: 60px;
+            border-bottom:1px solid #dbdbdb;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        tr>td:nth-child(1){
+            padding: 10px;
+            height: 40px;
+            width: 300px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        tr>td:nth-child(2){
+            width: 370px;
+            text-align: center;
+        }
+        
+        input:focus{
+            outline: none;
+        }
+        
+        /* 텍스트 필드 */
+        .textfiledDiv{
+            float: left;
+            position: relative;}
+        .textfiled{
+            height: 40px;
+            width: 340px;
+            border: 1px solid #ccc; 
+            padding: 7px 14px 7px; 
+            box-sizing: border-box; 
+            letter-spacing: 1px;
+            
+            transition: 0.4s;
+        }
+        .focus-border:before,.focus-border:after{
+            content: ""; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 0; 
+            height: 2px; 
+            background-color: #3c19b9; 
+            transition: 0.3s;
+        }
+        .textfiled ~ .focus-border:after{
+            top: auto; 
+            bottom: 0; 
+            left: auto; 
+            right: 0;
+        }
+        .textfiled ~ .focus-border i:before,
+        .textfiled ~ .focus-border i:after{
+            content: ""; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 2px; 
+            height: 0; 
+            background-color: #3c19b9; 
+            transition: 0.4s;
+        }
+        .textfiled ~ .focus-border i:after{
+            left: auto; 
+            right: 0; 
+            top: auto; 
+            bottom: 0;
+        }
+        .textfiled:focus ~ .focus-border:before,
+        .textfiled:focus ~ .focus-border:after{
+            width: 100%; 
+            transition: 0.3s;
+        }
+        .textfiled:focus ~ .focus-border i:before,
+        .textfiled:focus ~ .focus-border i:after{
+            height: 100%; 
+            transition: 0.4s;
+        }
+        
+        /* 버튼 */
+        .btn {
+            width: 130px;
+            height: 40px;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 25px;
+            background-color: #9177da;
+            /* background-image: linear-gradient(315deg, #3c00e0 0%, #9177da 74%); */
+            border: none;
+            transition: background-color 1s;
+        }
+        .btn:hover{
+            background-color: #3c00e0;
+        }
+    </style>
+    <script src="/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <div class="box">
+        <div class="box2">
+            <form>
+                <table>
+                    <tr>
+                        <th colspan = "2">회원 기본 정보</th>
+                    </tr>
+                    <tr>
+                        <td>아이디</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="text" maxlength="12" id="uid" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="password" maxlength="12" id="pw" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호확인</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="password" maxlength="12" id="pwck" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>메일주소</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="email" id="email" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이름</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="text" id="name" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan = "2">개인 신상 정보</th>
+                    </tr>
+                    <tr>
+                        <td>주민등록번호</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="text" maxlength="13" id="jumin" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>생일</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="text" id="birth" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>관심분야</td>
+                        <td>
+                            <input type="checkbox" name="hobbys" value="컴퓨터">컴퓨터
+                            <input type="checkbox" name="hobbys" value="인터넷">인터넷
+                            <input type="checkbox" name="hobbys" value="여행">여행
+                            <input type="checkbox" name="hobbys" value="영화감상">영화감상
+                            <input type="checkbox" name="hobbys" value="음악감상">음악감상
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>자기소개</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="text" id="introduce" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan = "2">
+                            <input type="button" value="회원가입" onclick="userInsert()" class="btn">
+                            <input type="reset" value="다시입력" class="btn">
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </div>    
+    </div>
+
+    <script>
+        function userInsert(){
+            const regex = /^[a-z|A-Z|0-9]+$/;
+            const regex2=/^[a-z|A-Z|0-9]+@[a-z|A-Z|0-9]+.com$/;
+            const regex3 = /^[0-9]+$/;
+            //const regex2 = /^[a-z|A-Z]+$/;
+            let uid = document.getElementById('uid');
+            let pw = document.getElementById('pw');
+            let pwck = document.getElementById('pwck');
+            let email = document.getElementById('email');
+            let name = document.getElementById('name');
+            let jumin = document.getElementById('jumin');
+            let birth = document.getElementById('birth');
+            const hobby = document.getElementsByName('hobbys');
+            let hobbyresult = new Array();
+            let introduce = document.getElementById('introduce');
+
+            //아이디-----------------------------------
+            if(uid.value==''){
+                alert('아이디를 입력해주세요');
+                uid.focus();
+                return;
+            }
+            if(!regex.test(uid.value)||String(uid.value).length<4){
+                alert('아이디는 영문과 숫자로만 입력가능하고,\n4글자 이상부터 등록됩니다.');
+                uid.value = '';
+                uid.focus();
+                return;
+            }
+            //비밀번호---------------------------------
+            if(pw.value==''){
+                alert('비밀번호를 입력해주세요');
+                pw.focus();
+                return;
+            }
+            if(!regex.test(pw.value)||String(pw.value).length<4){
+                alert('비밀번호는 영문과 숫자로만 입력가능하고,\n4글자 이상부터 등록됩니다.');
+                pw.value = '';
+                pw.focus();
+                return;
+            }
+            if(pw.value!=pwck.value){
+                alert('비밀번호 확인이 맞지 않습니다.');
+                pw.value = '';
+                pwck.value = '';
+                pw.focus();
+                return;
+            }
+            //이메일-----------------------------------
+            if(email.value==''){
+                alert('이메일을 입력해주세요');
+                email.focus();
+                return;
+            }
+            if(!regex2.test(email.value)){
+                alert('유효하지 않는 이메일 주소입니다.');
+                email.value = '';
+                email.focus();
+                return;
+            }
+            //이름--------------------------------------
+            if(name.value==''){
+                alert('이름을 입력해주세요');
+                name.focus();
+                return;
+            }
+            //주민번호----------------------------------------
+            if(jumin.value==''){
+                alert('주민번호를 입력해주세요');
+                jumin.focus();
+                return;
+            }
+            if(!regex3.test(jumin.value)){
+                alert('주민번호는 숫자로만 입력 가능합니다.');
+                jumin.value = '';
+                birth.value = '';
+                jumin.focus();
+                return;
+            }
+            if(String(jumin.value).length!=13){
+                alert('주민번호를 끝까지 입력해주세요');
+                jumin.value = '';
+                birth.value = '';
+                jumin.focus();
+                return;
+            }else{
+                // 생년월일이 유효한지 확인
+                if (!dateCheck(1, jumin.value)) {
+                    alert('유효하지 않는 주민번호입니다');
+                    jumin.value = '';
+                    birth.value = '';
+                    jumin.focus();
+                    return false;
+                }
+            }
+            //관심분야--------------------------------------------
+            for(var i = 0; i < hobby.length; i++){
+                if(hobby[i].checked){
+                    hobbyresult.push(hobby[i].value);
+                }
+            }
+            console.log(hobbyresult);
+            if(hobbyresult.length == 0){
+                alert('관심분야를 1개이상 선택해주세요');
+                return;
+            }
+            //자기소개-----------------------------------------
+            if(introduce.value==''){
+                alert('자기소개를 입력해주세요');
+                introduce.focus();
+                return;
+            }
+
+            let obj = {
+                'id': uid.value,
+                'pw':pw.value,
+                'email':email.value,
+                'name':name.value,
+                'jumin':jumin.value,
+                'birth':birth.value,
+                'hobby':hobbyresult,
+                'introduce':introduce.value
+            };
+            //console.log(obj);
+            
+            $.ajax({
+                url: 'http://localhost:3000/test1',
+                type: 'get',
+                data: obj,
+                dataType: 'json',
+                success: function(res){
+                    console.log(res);
+                    if(res.status == 200){
+                        let list = res.list;
+                    }
+                }
+            })
+            $('form')[0].reset();
+            alert('회원가입이 되었습니다!');
+            history.back();
+        }
+
+        function dateCheck(ck, jumin) {
+            let birth = document.getElementById('birth');
+            //생년월일            
+            const yearPart = jumin.substring(0, 2);
+            const genderCode = parseInt(jumin.charAt(6), 10);
+            const month = parseInt(jumin.substring(2, 4), 10);
+            const day = parseInt(jumin.substring(4, 6), 10);
+
+            let year = parseInt(yearPart, 10);
+
+            // 년도 계산
+            if (genderCode == 1 || genderCode == 2) {
+                year += 1900;
+            } else if (genderCode == 3 || genderCode == 4) {
+                year += 2000;
+            } else if (genderCode == 9 || genderCode == 0) {
+                year += 1800; 
+            } else {
+                return false;
+            }
+
+            const date = new Date(year, month - 1, day);
+            const ck2 = date.getFullYear() == year && date.getMonth() + 1 == month && date.getDate() == day;
+            if(ck == 0){
+                if(ck2){
+                    birth.value = year+'-'+month+'-'+day;
+                }
+            }
+            return ck2;
+        }
+        function checkLength(event) {
+            const inputElement = event.target;
+            let birth = document.getElementById('birth');
+            // junin일때만 작동하도록 확인
+            if (inputElement.id == "jumin") {
+                birth.value = '';
+                const inputValue = inputElement.value;
+                if (inputValue.length == 13) {
+                    const regex3 = /^[0-9]+$/;
+                    if(regex3.test(inputValue)){
+                        if (dateCheck(0, inputValue)) {
+                            console.log('생년월일입력됨');
+                        }
+                    }
+                }
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            // 모든 input 요소에 이벤트 리스너 추가
+            const inputElements = document.querySelectorAll("input");
+
+            inputElements.forEach(function(inputElement) {
+                inputElement.addEventListener("input", checkLength);
+            });
+        });
+
+    </script>
+</body>
+</html>
