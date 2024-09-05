@@ -234,10 +234,8 @@
                 data: obj,
                 dataType: 'json',
                 success: function(res){
-                    console.log(res);
                     if(res.status == 200){
                         let list = res.list;
-                        console.log(list[0]);
                         if(pw.value!=list[0].pw){
                             alert('비밀번호가 틀렸습니다.')
                             return;

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/js/bootstrap.js">
+    <script src="/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <button type="button" onclick="time()" class="btn btn-outline-danger">promise</button>
+    <button type="button" onclick="promi()" class="btn btn-outline-danger">promise</button>
+    <button type="button" onclick="aj()" class="btn btn-outline-danger">비동기 통신</button>
+    <button type="button" onclick="ay()" class="btn btn-outline-danger">비동기 통신</button>
+    <script>
+
+        // setTimeout(async function(){
+
+        // },1000);
+
+        //async
+        async function ay(){
+            let obj = {};
+            //await 이 기능이 완전히 끝날 때 까지 기다려주는 기능
+            //Promise가 복잡해서,Promise를 단순하게 만드는 기능
+            //그래서 이 기능은 Promise가 적용된 것만 사용이 가능
+            await $.ajax({
+                url: 'http://localhost:3000/send1',
+                type:'post',
+                data: JSON.stringify(obj),
+                contentType: 'application/json',
+                success:function(res){
+                    console.log(res);
+                    obj = res;
+                },
+                error: function(xhr,status,error){
+                    reject(status);
+                    obj = status;
+                }
+            });
+            console.log(obj);
+
+        }
+
+        //비동기 통신
+        function aj(){
+                let result = new Object(); //결과값을 보관하는 obj
+                let obj = {name:'슈퍼맨'}; //ajax에 보내는 data
+                new Promise((resolve, reject)=>{
+                $.ajax({
+                    url: 'http://localhost:3000/send1',
+                    type:'post',
+                    data: JSON.stringify(obj),
+                    contentType: 'application/json',
+                    success:function(res){
+                        console.log(res);
+                        resolve(res);
+                    },
+                    error: function(xhr,status,error){
+                        reject(status);
+                    }
+                });
+    
+                }).then(result => {
+                    console.log('성공: ',result);
+                }).catch(result =>{
+                    console.log('실패: ',result);
+                })
+            
+        }
+
+        function promi(){
+            //비동기 통신
+            
+            let pro = new Promise(function(resolve, reject){
+                console.log('동작 구현 부분');
+
+                let check = true;
+                //resolve 이 코드가 성공적으로 끝났을 때
+                if(check){
+                    resolve('빨강색');
+                }
+                //reject 코드가 실패 혹은 error가 되었을 때.
+                else{
+                    reject('파랑색');
+                }
+            });
+
+            //pro가 정상적으로 이행 했을 때, then* resolve로 함수 넣으면, 이함수가 실행 된다.) 
+            pro.then(result =>{
+                console.log(result);
+            })
+            .catch(result =>{
+                console.log(result);
+            })
+            .finally(result =>{
+                console.log('무조건 실행');
+            });
+        }
+        //DB를 주고 받을 때  database 연결하는 것도 비동기.
+        //primary key 를 지정 안한 상태라고 가정을 두겠습니다. (seq도 없습니다.)
+        //1,2,3,4,5 'IDX' 어떤 컬럼이 해당 기능을 제공.
+        
+        //1. 해당 테이블의 IDX 컬럼의 제일 마지막 번호를 갖고 와야 합니다.
+        //select max(IDX) from '테이블명';
+        //2. 1번의 행위가 끝나면 1번의 결과값을 가지고 , insert.
+
+        //위의 행위를 비동기 진행 안 했을 경우에
+        //1번을 시키고 안기다리고 2번을 실행  (안기다린다.)
+
+
+        function time(){
+            setTimeout(function(){
+                console.log('set Time Out');
+            }, 1000);
+
+            console.log('실행 영역');
+        }
+
+
+        //Promise
+        
+    </script>
+</body>
+</html>
