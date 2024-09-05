@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgb(48, 45, 179);
+            background-image: url('back.png');
+        }
+        .box{
+            position: relative;
+            width: 520px;
+            height: 350px;
+            background: white;
+            overflow: hidden;
+            box-shadow: 25px 25px rgb(27, 21, 82);
+            border: 3px solid rgb(27, 21, 82);
+            /* animation: test 15s infinite linear; */
+        }
+        @keyframes test {
+            0%{ 
+                background-color: #3c00e0;
+            }
+            30%{
+                background-color: #9177da;
+            }
+            50%{
+                background-color: #ccc2e9;
+            }
+            70%{
+                background-color: #9177da;
+            }
+            100%{ 
+                background-color: #3c00e0;
+            }
+        }
+        .box2 {
+            padding: 15px 30px;
+            margin-top: 30px;
+            width: 100%;
+            height: 700px;
+        }
+        table {
+            margin-right: 60px;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        tr,td {
+            height: 50px;
+        }
+        .intro{
+            height: 80px;
+        }
+        th{
+            height: 60px;
+            border-bottom:1px solid #dbdbdb;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        tr>td:nth-child(1){
+            padding: 10px;
+            height: 40px;
+            width: 300px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        tr>td:nth-child(2){
+            width: 370px;
+            text-align: center;
+        }
+        
+        input:focus{
+            outline: none;
+        }
+        
+        /* 텍스트 필드 */
+        .textfiledDiv{
+            float: left;
+            position: relative;}
+        .textfiled{
+            height: 40px;
+            width: 340px;
+            border: 1px solid #ccc; 
+            padding: 7px 14px 7px; 
+            box-sizing: border-box; 
+            letter-spacing: 1px;
+            
+            transition: 0.4s;
+        }
+        .focus-border:before,.focus-border:after{
+            content: ""; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 0; 
+            height: 2px; 
+            background-color: #3c19b9; 
+            transition: 0.3s;
+        }
+        .textfiled ~ .focus-border:after{
+            top: auto; 
+            bottom: 0; 
+            left: auto; 
+            right: 0;
+        }
+        .textfiled ~ .focus-border i:before,
+        .textfiled ~ .focus-border i:after{
+            content: ""; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 2px; 
+            height: 0; 
+            background-color: #3c19b9; 
+            transition: 0.4s;
+        }
+        .textfiled ~ .focus-border i:after{
+            left: auto; 
+            right: 0; 
+            top: auto; 
+            bottom: 0;
+        }
+        .textfiled:focus ~ .focus-border:before,
+        .textfiled:focus ~ .focus-border:after{
+            width: 100%; 
+            transition: 0.3s;
+        }
+        .textfiled:focus ~ .focus-border i:before,
+        .textfiled:focus ~ .focus-border i:after{
+            height: 100%; 
+            transition: 0.4s;
+        }
+        
+        /* 버튼 */
+        .btn {
+            width: 130px;
+            height: 40px;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 25px;
+            background-color: #9177da;
+            /* background-image: linear-gradient(315deg, #3c00e0 0%, #9177da 74%); */
+            border: none;
+            transition: background-color 1s;
+        }
+        .btn:hover{
+            background-color: #3c00e0;
+        }
+    </style>
+    <script src="/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <div class="box">
+        <div class="box2">
+            <form>
+                <table>
+                    <tr>
+                        <th colspan = "2">회원 기본 정보</th>
+                    </tr>
+                    <tr>
+                        <td>아이디</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="text" maxlength="12" id="uid" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호</td>
+                        <td>
+                            <div class="textfiledDiv">
+                                <input type="password" maxlength="12" id="pw" class="textfiled">
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan = "2">
+                            <input type="button" value="로그인" onclick="login()" class="btn">
+                            <input type="reset" value="회원가입" class="btn" onclick="pageinsert()">
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </div>    
+    </div>
+
+    <script>
+        function pageinsert(){
+            //location.href = 'test1.html'
+        }
+        function login(){
+            let uid = document.getElementById('uid');
+            let pw = document.getElementById('pw');
+
+            //아이디-----------------------------------
+            if(uid.value==''){
+                alert('아이디를 입력해주세요');
+                uid.focus();
+                return;
+            }
+            //비밀번호---------------------------------
+            if(pw.value==''){
+                alert('비밀번호를 입력해주세요');
+                pw.focus();
+                return;
+            }
+           
+            let obj = {
+                'id': uid.value
+            };
+
+            $.ajax({
+                url: 'http://localhost:3000/test2',
+                type: 'get',
+                data: obj,
+                dataType: 'json',
+                success: function(res){
+                    if(res.status == 200){
+                        let list = res.list;
+                        if(pw.value!=list[0].pw){
+                            alert('비밀번호가 틀렸습니다.')
+                            return;
+                        }else{
+                            document.cookie = 'user='+list[0].id;
+                            $('form')[0].reset();
+                            alert('로그인이 되었습니다!');
+                            location.href = 'test1.html';
+                        }
+                    }else{
+                        alert('없는 사용자 입니다.')
+                        return;
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+</html>

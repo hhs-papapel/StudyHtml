@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>로그인된 회원 아이디 불러오기</h1>
+    <input type="text" id="uid" placeholder="버튼을 눌러 아이디를 확인하세요">
+    <input type="button" value="아이디 확인" onclick="loadUid()">
+
+    <script>
+        function loadUid(){
+            let cookieName = document.getElementById('uid');
+            let va = getCookies('user');
+            console.log(document.cookie);
+            uid.value = va;
+        }
+
+        function getCookies(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) == 0) {
+                    return c.substring(nameEQ.length, c.length);
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>

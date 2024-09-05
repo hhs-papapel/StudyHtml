@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroage 2</title>
+</head>
+<body>
+    <input type="button" value="저장" onclick="save()">
+    <input type="button" value="불러오기" onclick="load()">
+    <input type="button" value="다음페이지" onclick="move()">
+
+    <script>
+        function save(){
+            localStorage.setItem('key','value1');
+        }
+
+        //불러오기
+        function load(){
+            let test = localStorage.getItem('key');
+            console.log(test);
+        }
+
+        //다음페이지 이동
+        function move(){
+            location.href = '02_locationItem.html';
+        }
+    </script>
+</body>
+</html>
